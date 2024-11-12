@@ -1,3 +1,9 @@
+-- Querying all columns of a table
+SELECT
+    *
+FROM
+    [Curso]
+
 -- Querying Courses by its related category id using equal to operator
 SELECT TOP 100
     [Id], [Nome], [CategoriaId]
@@ -111,3 +117,33 @@ FROM
     [Curso]
 ORDER BY
     [Nome] DESC
+
+-- Getting smallest id
+SELECT
+    MIN([Id])
+FROM 
+    [Curso]
+
+-- Getting largest id
+SELECT
+    MAX([Id])
+FROM
+    [Curso]
+
+-- Counting the amount of registres by its id
+SELECT
+    COUNT([Id])
+FROM
+    [Curso]
+
+-- Getting the avarage result of the id values
+SELECT
+    AVG([Id])
+FROM
+    [Curso]
+
+-- Gwtting the sum of the values of the column id
+SELECT
+    SUM([Id])
+FROM
+    [Curso]
