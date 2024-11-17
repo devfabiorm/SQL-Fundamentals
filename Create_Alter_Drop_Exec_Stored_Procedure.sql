@@ -1,0 +1,28 @@
+-- SQL COMMAND TO CREATE NEW PROCEDURE OR ALTER AN ALEREADY EXISTING PROCEDURE
+CREATE OR ALTER PROCEDURE [spListCourse] AS
+    SELECT * FROM [Curso]
+
+CREATE OR ALTER PROCEDURE [spListCourse] AS
+--  SQL COMMANDS TO CREATE AND POPULATE A VARIABLE
+    DECLARE @CategoriaId INT
+    SET @CategoriaId = (SELECT TOP 1 [Id] FROM [Categoria] WHERE [Nome] = 'Backend')
+
+    SELECT * FROM [Curso] WHERE [CategoriaId] = @CategoriaId
+
+-- SQL COMMAND TO CREATE A PROCEDURE WITH A PARAMETER
+CREATE OR ALTER PROCEDURE [spListCourse] 
+        @Categoria NVARCHAR(60)
+    AS
+        DECLARE @CategoriaId INT
+        SET @CategoriaId = (SELECT TOP 1 [Id] FROM [Categoria] WHERE [Nome] = @Categoria)
+    SELECT * FROM [Curso] WHERE [CategoriaId] = @CategoriaId
+
+
+-- SQL COMMAND TO DELETE A PROCEDURE
+DROP PROCEDURE [spListCourse]
+
+-- SQL COMMAND TO EXECUTE A PROCEDURE
+EXEC [spListCourse]
+
+-- SQL COMMAND TO EXECUTE A PROCEDURE WITH A PARAMETER
+EXEC [spListCourse] 'Backend'
